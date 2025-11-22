@@ -131,7 +131,8 @@
           const unpackaged = await unpackage(file);
           const type = unpackaged.type;
           const data = unpackaged.data;
-          const name = `${file.name}.${type}`;
+          const baseName = file.name.replace(/\.[^/.]+$/, '');
+          const name = `${baseName}.${type}`;
 
           const blob = new Blob([data], {
             type: `application/x.scratch.${type}`
